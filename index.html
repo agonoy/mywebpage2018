@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!--
+    NOTE:  
+    Shift + Alt + F   ( format code )
+    
+-->
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="myCSS.css" />
+    <script language="JavaScript" src="myJS.js"></script> <!--  load script -->
+
+
+    <title>Benie index title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!--game box-->
+    <style>
+        canvas {
+            border: 1px solid #d3d3d3;
+            background-color: #f1f1f1;
+            position: absolute;
+            left: 350px;
+            top: 150px;
+        }
+    </style>
+
+
+</head>
+
+<body onload="startGame()">
+    <div id="box_leftSide" style="float: left">
+        <div id="content">
+            <!--inside the box-->
+            <div class="image-box" align="middle">
+                <img src="Images/tube.png" style="width: 250px; margin-top: 40px" class="img-circle">
+
+                <h1 align="middle">Me, myself & I</h1>
+                <p> The Web Master of disaster </p>>
+
+                <!--drop down list-->
+                <div class="navbar">
+
+                    <!--My hobby links-->
+                    <div class="dropdown">
+                        <button class="dropbtn">Hobby
+                            <!--<i class ="fa fa-caret-down"></i>    Displays Arrown down, using link to Internet -->
+                        </button>
+
+                        <div class="dropdown-content">
+                            <a class="button thumb-img">1st Hobby
+                                <!--display my first hobby when button hovers-->
+                                <img class="full-img resize" src="Images/CBR.png">
+                            </a>
+                            <a class="button thumb-img">2nd Hobby
+                                <!--display my first hobby when button hovers-->
+                                <img class="full-img resize" src="Images/Guitar.png">
+                            </a>
+                            <a class="button thumb-img">3rd Hobby
+                                <!--display my first hobby when button hovers-->
+                                <img class="full-img resize" src="Images/me_chess.png">
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <!--Wild animal link-->
+                    <div class="dropdown">
+                        <button class="dropbtn" style="align-self:  center">Projects
+                            <!--<i class ="fa fa-caret-down"></i>    Displays Arrown down, using link to Internet -->
+                        </button>
+                        <div class="dropdown-content">
+
+                                <a href="Canvas/myCanvas.html" class="button">Drawing</a>
+                            <a href="wildlife.html" class="button">Wild LIfe w/animation</a>
+
+                            <a href="wildlifePHP/PHPwildlife.php" class="button button1">Wildlife (PHP) Configured</a>
+                            <a href="HexAdder.html" class="button button2">Hex Adder </a>
+
+                            <a href="AJAX/CourseInfo.html" class="button button3">Course List ( W/ AJAX & Iframe )</a>
+                           
+                            <a href="IFrame/courseSelectIFrame.html" class="button button5">course List (W/ Iframe)</a>
+                            <a href="courseSelect.html" class="button button4">Course list</a>
+
+                            <a href="php/PHP_Add_Quizzer.html" class="button button6">Math Quizzer (PHP)</a>
+                            
+                            <a href="DB/DBForm.php" class="button button3"> Data Base - SQL & PHP</a>
+                            
+                            <a href="GeoNames/zip_2.php" class="button button7">GeoNames ZipCode (PHP)</a>
+                            <a href="GeoNames/genSearch_2.php" class="button button4">GeoNames "Intertesting Project" (PHP)</a>
+
+                            <a href="Hobby2.html" class="button button8">Pending project</a>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Blank for now-->
+                    <div class="dropdown">
+                        <button class="dropbtn" style="align-self:  center"> Etc.
+                            <!--<i class ="fa fa-caret-down"></i>    Displays Arrown down, using link to Internet -->
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="myWeb_test_2/GAMEindex.html" class="button">Venom vs Akuma</a>
+                            <a href="globe_unity3d/index.html" class="button"> World </a>
+                            <a href="Hobby2.html" class="button button3">Pending project 10mb</a>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!--End navbar-->
+
+                <div style="text-align: center; padding: 10px ">
+                    <p> ABOUT </p>
+                    <p> SERVICES </p>
+                    <p> SKILLS </p>
+                    <p> EDUCATION </p>
+                    <p> EXPERIENCE </p>
+                    <p> WORK </p>
+
+                </div>
+
+                <footer style="padding: 50px"> &copy; Copyright 2018 HTML.am</footer>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!--left side of web    END !!    -->
+
+
+
+
+
+
+    <!--Below is the right side-->
+    <div class="myRightSide">
+
+        <div class="myHeader  "></div>
+
+        <!--game box-->
+        <!--           <body onload="startGame()">-->
+
+        <div style="position: fixed; left: 400px; top: 410px;">
+            <script>
+                var myGamePiece;
+                var myObstacles = [];
+                var myScore;
+
+                function startGame() {
+                    myGamePiece = new component(7, 7, "#FF00FF", 10, 100);
+                    myGamePiece.gravity = 0.05;
+                    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+                    myGameArea.start();
+                }
+
+                var myGameArea = {
+                    canvas: document.createElement("canvas"),
+                    start: function () {
+                        this.canvas.width = 780;
+                        this.canvas.height = 270;
+                        this.context = this.canvas.getContext("2d");
+                        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                        this.frameNo = 0;
+                        this.interval = setInterval(updateGameArea, 20);
+                    },
+                    clear: function () {
+                        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                    }
+                };
+
+                function component(width, height, color, x, y, type) {
+                    this.type = type;
+                    this.score = 0;
+                    this.width = width;
+                    this.height = height;
+                    this.speedX = 0;
+                    this.speedY = 0;
+                    this.x = x;
+                    this.y = y;
+                    this.gravity = 0;
+                    this.gravitySpeed = 0;
+                    this.update = function () {
+                        ctx = myGameArea.context;
+                        if (this.type === "text") {
+                            ctx.font = this.width + " " + this.height;
+                            ctx.fillStyle = color;
+                            ctx.fillText(this.text, this.x, this.y);
+                        } else {
+                            ctx.fillStyle = color;
+                            ctx.fillRect(this.x, this.y, this.width, this.height);
+                        }
+                    };
+                    this.newPos = function () {
+                        this.gravitySpeed += this.gravity;
+                        this.x += this.speedX;
+                        this.y += this.speedY + this.gravitySpeed;
+                        this.hitBottom();
+                    };
+                    this.hitBottom = function () {
+                        var rockbottom = myGameArea.canvas.height - this.height;
+                        if (this.y > rockbottom) {
+                            this.y = rockbottom;
+                            this.gravitySpeed = 0;
+                        }
+                    };
+                    this.crashWith = function (otherobj) {
+                        var myleft = this.x;
+                        var myright = this.x + (this.width);
+                        var mytop = this.y;
+                        var mybottom = this.y + (this.height);
+                        var otherleft = otherobj.x;
+                        var otherright = otherobj.x + (otherobj.width);
+                        var othertop = otherobj.y;
+                        var otherbottom = otherobj.y + (otherobj.height);
+                        var crash = true;
+                        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft >
+                                otherright)) {
+                            crash = false;
+                        }
+                        return crash;
+                    };
+                }
+
+                function updateGameArea() {
+                    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+                    for (i = 0; i < myObstacles.length; i += 1) {
+                        if (myGamePiece.crashWith(myObstacles[i])) {
+                            return;
+                        }
+                    }
+                    myGameArea.clear();
+                    myGameArea.frameNo += 1;
+                    if (myGameArea.frameNo === 1 || everyinterval(10)) { //distance each of columns
+                        x = myGameArea.canvas.width;
+                        minHeight = 30;
+                        maxHeight = 2 ^ 00;
+                        height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
+                        minGap = 70;
+                        maxGap = 150;
+                        gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
+                        myObstacles.push(new component(10, height, "##0000FF", x, 0));
+                        myObstacles.push(new component(10, x - height - gap, "#000080", x, height + gap));
+                    }
+                    for (i = 0; i < myObstacles.length; i += 1) {
+                        myObstacles[i].x += -1;
+                        myObstacles[i].update();
+                    }
+                    myScore.text = "SCORE: " + myGameArea.frameNo;
+                    myScore.update();
+                    myGamePiece.newPos();
+                    myGamePiece.update();
+                }
+
+                function everyinterval(n) {
+                    if ((myGameArea.frameNo / n) % 1 === 0) {
+                        return true;
+                    }
+                    return false;
+                }
+
+                function accelerate(n) {
+                    myGamePiece.gravity = n;
+                }
+            </script>
+            <br>
+            <button style="color: darkorange" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
+            <p style="font-family: sans-serif; color:  #f44336">Use the ACCELERATE button to stay in the air</p>
+            <p>How long can you stay alive?</p>
+
+        </div>
+        <!--END GAME-->
+
+
+
+
+    </div>
+    <!--End of right side-->
+    <div>
+    </div>
+</body>
+</html>
+
