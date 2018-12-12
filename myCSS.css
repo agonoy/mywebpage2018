@@ -1,0 +1,392 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 21, 2018, 5:37:06 PM
+    Author     : benieagonoy
+*/
+
+
+
+/** Banner always on top */
+.myHeader{  
+    position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 15px;
+  z-index: 10;
+  background: #35D169;    /*green*/
+  -webkit-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+#box_leftSide{
+    background-color:#E5E8E8;
+    width: 300px;
+    height: 1000px;
+    overflow: auto;
+      border: 2px dotted black;
+       overflow-x: hidden;
+    overflow-y: scroll;
+    float: left;
+}
+
+#content {
+    height: 1000px;
+    width: 300px;
+    background-color: #E5E8E8; 
+}
+
+.image-box{                                         /*this holds the image of my picture*/
+    width: 280px;
+    height: 300px;
+    background-color: #ECF0F1;
+    margin-top: 0px;
+   
+}
+
+#scroll{
+    direction:rtl; 
+    overflow:auto; 
+    height:0px; 
+    width:00px;
+    direction: ltr;
+}
+
+
+/*
+#scroll div{
+    direction:ltr;
+}*/
+
+/*
+.author-img {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative; }*/
+
+
+/*right box container*/
+.myRightSide{
+      background-color: #E5E8E8;
+   overflow: auto;
+     /*border: 2px dotted black;*/
+       overflow-x: hidden;
+    overflow-y: scroll;
+    
+             height: 1000px;
+}
+
+
+/*make picture inside a circle*/
+.img-circle { 
+   align-self: center ;
+    position: relative;
+              top: 10%;
+              left: 2%;
+    border-radius: 50%; 
+}
+
+
+
+
+/**   #1.  Drop down list ( start )*/
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color:  darkorange;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/*experi*/
+dropdown-content div{
+      float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/*experi*/
+.dropdown-content div:hover {
+    background-color: #ddd;
+}
+
+/* highlight in red box when the item is selected */
+.dropdown-content a:hover {
+    background-color: #ddd;
+    border-style: solid;
+    border-color:  green blue red;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/**   #1.  Drop down list (  END )*/
+
+
+
+
+
+/*different types of button color*/
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* to call:   <p  class="button button3"  >   */
+.button1 {background-color: rgb(255, 242, 0);} /* Black */
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #e77e77;} /* Red */ 
+.button4 {background-color: aquamarine;} /* Gray */ 
+.button5 {background-color: #9fdedb;} /* Black */
+.button6 {background-color: orange;} /* Black */
+.button7 {background-color: rgb(129, 122, 226);} /* blue */
+.button8 {background-color: rgb(0, 217, 255);} /* Black */
+
+/*END of Button colors*/
+
+/*------------------------------------ Makes image appear on the right side when hovered --------------------------*/
+    #thumb-area {
+                background-color: yellow;
+                width: 100px;
+                height: 1500px;
+                float: left;
+            }
+            
+            #image-area{
+                background-color: #0B6688;  /**  purple something */
+                height: 1500px;
+              
+           
+            }
+            
+            .full-img{
+                /*the below code has to be hidden*/
+                /*visibility: hidden;*/   
+              
+                opacity: 0;
+                transition-property: width;
+                transition-duration: 4s;
+                position: fixed;
+                left: 320px;
+                top: 230px;
+                border-style: solid;
+                border-width: 10px
+                 
+                   
+                 
+            }
+            
+            
+            /*resize image to half size.*/
+            /*USE: class="resize"*/
+            img.resize {
+  max-width:50%;
+  max-height:50%;
+}
+            
+            .thumb-img:hover  img{
+               /*visibility: visible;*/ 
+               opacity: 100;
+            }
+            
+            
+/*------------------------------------  END Image --------------------------*/
+
+
+
+.myGradient{
+    background: #466368;
+  background: radial-gradient(#FBFCFC, #E5E8E8);
+}
+
+
+
+.myMiddleOfScreen{
+    height: 500px;
+    width: 500px;
+    background: black;
+
+    position:   relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -400px;
+    margin-left: -300px;
+    
+}
+
+
+
+
+
+/*------------------------------------   banner that blinks -----------------------------------------*/
+
+/*Animation box that chages color .  tTo Call:   <div  id="animBox" >  */
+#animBox {
+   /** width: 1200px;
+    height: 50px;*/
+    background: red;
+    -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+    animation: mymove 2s infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {background-color: red;}
+    to {background-color: #2ECC71;}
+     
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    from {background-color: red;}
+    to {background-color: #FBFCFC;}
+   
+}
+/*------------------------------------   ENDS  banner that blinks -----------------------------------------*/
+
+/*
+.img-circle img{
+    bottom:  0;
+}
+
+.myMiddle{
+    img { position: absolute; left: 50%; top: 50%; margin: -63px 0 0 -182px;}
+}
+
+
+
+#colorlib-aside #colorlib-logo a {
+      display: block;
+      text-align: center;
+      color: #000;
+      padding-right: .3em; }
+*/
+
+
+
+
+
+
+
+
+
+/*     
+        <style>
+            #container{
+                height: 400px;
+                width: 600px;
+                outline: 1px solid black;
+                position: relative;
+            }
+            
+            #guy{
+                position: absolute;
+                height: 50px;
+                width: 50px;
+                outline: 1px solid black;
+                background-color:  red;
+            }
+            
+        </style>*/
+
+
+/*
+
+           <div id="container">
+              
+               <div id="guy"></div>
+           </div>*/
+           
+
+
+
+/*
+
+   <script>
+               var guy=document.getElementById('guy');
+               var container=document.getElementById('container');
+               
+               var guyLeft = 0;
+               
+               function anim(e){
+                   if(e.keyCode===39){
+                       guyLeft +=2;
+                       guy.style.left = guyLeft + 'px';
+                   }
+                   if(e.keyCode===37){
+                       guyLeft -=2;
+                       guy.style.left = guyLeft +'px';
+                       if(guyLeft <=0){
+                           guyLeft +=2;
+                       }
+                   }
+               }
+               
+               document.onkeydown = anim;
+               
+           </script>
+           
+           */
